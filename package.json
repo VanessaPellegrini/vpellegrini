@@ -1,0 +1,32 @@
+{
+  "name": "vpellegrini",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VanessaPellegrini/vpellegrini.git"
+  },
+  "author": "vanessa pellegrini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VanessaPellegrini/vpellegrini/issues"
+  },
+  "homepage": "https://github.com/VanessaPellegrini/vpellegrini#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^5.0.0",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1"
+  }
+}

@@ -1,0 +1,413 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Sacramento);
+
+html, body {
+  overflow: hidden;
+}
+
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  height: 100vh + $parallax-offset;
+  position: fixed;
+  width: 100%;
+  transform: translateY($parallax-offset);
+  @include transition($transition-speed, all, cubic-bezier(0.22, 0.44, 0, 1));
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.3);
+  }
+  &:first-child {
+    background-image: url(../../dist/img/pruebacoloresRosaVerde.jpg);
+    transform: translateY(-$parallax-offset / 2);
+    .content-wrapper {
+      transform: translateY($parallax-offset /2);
+    }
+  }
+  &:nth-child(2) {
+    background: rgba(198,50,235,1);
+    background: -moz-linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(198,50,235,1)), color-stop(41%, rgba(232,37,193,1)), color-stop(100%, rgba(104,73,189,1)));
+    background: -webkit-linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
+    background: linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c632eb', endColorstr='#6849bd', GradientType=1 );
+  }
+  &:nth-child(3) {
+    background:#180091;
+  }
+  &:nth-child(4) {
+    background: #28fcf7;
+  }
+  .hello{
+    font-family: Sacramento;
+    text-transform: initial;
+  }
+}
+
+/* Set stacking context of slides */
+@for $i from 1 to ($slide-number + 1) {
+    .background:nth-child(#{$i}) {
+        z-index: ($slide-number + 1) - $i; 
+    }
+}
+
+.content {
+  &-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-flow: column nowrap;
+  color: #fff;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  transform: translateY($content-offset);
+  will-change: transform;
+  backface-visibility: hidden;
+  @include transition($transition-speed + .5, all, cubic-bezier(0.22, 0.44, 0, 1));
+  }
+  &-title {
+    font-size: 8vh;
+    line-height: 1.4;
+  }
+}
+
+// ------------- SET TRANSFORM VALUES ------------- //
+
+.background.up-scroll {
+  transform: translate3d(0,-$parallax-offset / 2,0);
+  .content-wrapper {
+    transform: translateY($parallax-offset / 2);
+  }
+  + .background {
+    transform: translate3d(0,$parallax-offset,0);
+      .content-wrapper {
+        transform: translateY($parallax-offset);
+      }
+    }
+}
+
+.background.down-scroll {
+  transform: translate3d(0,-(100vh + $parallax-offset),0);
+  .content-wrapper {
+    transform: translateY($content-offset);
+  }
+  + .background:not(.down-scroll) {
+    transform: translate3d(0,-$parallax-offset / 2,0);
+      .content-wrapper {
+        transform: translateY($parallax-offset / 2);
+      }
+  }
+}
+
+header{
+  hgroup {
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+    border: 5px solid #fff;
+    padding: 12.5em 20em;
+    background-color: rgba(0,0,0,.2);
+    z-index: 2;
+  }
+}
+
+/* LETTER HEADER*/
+.text {
+  position: absolute;
+  width: 450px;
+  left: 50%;
+  transform: translateX(-60%) translateY(-50%);
+  top: 35em;
+}
+
+p {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}
+
+.word {
+  position: absolute;
+  width: 220px;
+  opacity: 0;
+  top:0;
+  left: 20.8em;
+  color: #f4f442;
+}
+
+.letter {
+  display: inline-block;
+  position: relative;
+  float: left;
+  transform: translateZ(25px);
+  transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+  transform: rotateX(90deg);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+  transform: rotateX(-90deg);
+}
+
+.letter.in {
+  transform: rotateX(0deg);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+/*ARROW TO TOP*/
+a#top{
+  visibility: visible!important;
+  position: absolute;
+  left: 90%;
+  font-size: 2.5em;
+}
+/*ABOUT ME*/
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+
+// Accordion Height
+$a-height: 250px;
+
+// Position text along bottom
+$text-offset: $a-height - 90;
+
+// Page Title
+h1 {
+  
+  text-align:center;
+  font-family:Montserrat,sans-serif;
+  color:#333;
+
+}
+
+.accordion {
+
+  width:100%;
+  max-width:1080px;
+  height:$a-height;
+  overflow:hidden;
+  margin:50px auto;
+
+  ul {
+
+    width:100%;
+    display:table;
+    table-layout:fixed;
+    margin:0;
+    padding:0;
+
+    li {
+
+      display:table-cell;
+      vertical-align:bottom;
+      position: relative;
+      width:16.666%; // 6 into 100
+      height:$a-height;
+
+      background-repeat:no-repeat;
+      background-position:center center;
+
+      transition:all 500ms ease;
+
+      div {
+        
+        display:block;
+        overflow:hidden;
+        width:100%;
+
+        a {
+          
+          display:block;
+          height:$a-height;
+          width:100%;
+
+          position:relative;
+          z-index:3;
+          vertical-align:bottom;
+          padding:15px 20px;
+          box-sizing:border-box;
+          color:#fff;
+          text-decoration:none;
+          font-family:Open Sans, sans-serif;
+          
+          transition:all 200ms ease;
+
+          * {
+
+            opacity:0;
+            margin:0;
+            width:100%;
+            text-overflow:ellipsis;
+            position:relative;
+            z-index:5;
+            
+            white-space:nowrap;
+            overflow:hidden;
+            
+            -webkit-transform:translateX(-20px);
+            transform:translateX(-20px);
+
+            -webkit-transition:all 400ms ease;
+            transition:all 400ms ease;
+
+          }
+
+          h2 {
+
+            font-family:Montserrat,sans-serif;
+            text-overflow:clip;
+            font-size:24px;
+            text-transform:uppercase;
+            margin-bottom:2px;
+            
+            top:$text-offset;
+
+          }
+          
+          p {
+            
+            top:$text-offset;
+            font-size:13.5px;
+            
+          }
+
+        }
+
+      }
+
+    }
+    
+    // Background images
+    li:nth-child(1) { background-image:url(); }
+    li:nth-child(2) { background-image:url(); }
+    li:nth-child(3) { background-image:url(); }
+    li:nth-child(4) { background-image:url(); }
+    li:nth-child(5) { background-image:url(); }
+    li:nth-child(6) { background-image:url(); }
+
+    &:hover li,
+    &:focus-within li { width:8%; }
+    
+    li:focus {
+      outline: none;
+    }
+
+    &:hover li:hover,
+    // allow users to tab through active slides
+    li:focus,
+    &:focus-within li:focus {
+
+      width:60%;
+
+      a {
+        
+        background:rgba(0,0,0,.4);
+        
+        * {
+          
+          opacity:1;
+          -webkit-transform:translateX(0);
+          transform:translateX(0);
+        
+        }
+      
+      }
+
+    }
+    
+    &:hover li {
+      width: 8% !important;
+      
+      a * { opacity: 0 !important; }
+    }
+    
+    &:hover li:hover {
+      width:60% !important;
+
+      a {
+        
+        background:rgba(0,0,0,.4);
+        
+        * {
+          
+          opacity:1 !important;
+          -webkit-transform:translateX(0);
+          transform:translateX(0);
+        
+        }
+      
+      }
+    }
+
+  }
+
+}
+
+// Stack items
+@media screen and (max-width: 600px) {
+  
+  // IE gets fussy if this isn't here
+  body { margin:0; }
+  
+  .accordion {
+    
+    height:auto;
+    
+    ul,ul:hover {
+      
+      li,li:hover {
+        
+        position:relative;
+        display:table;
+        table-layout:fixed;
+        width:100%;
+        
+        -webkit-transition:none;
+        transition:none;
+        
+      }
+      
+    }
+    
+  }
+
+}
+
+.about {
+  
+  text-align:center;
+  font-family:'Open Sans', sans-serif;
+  font-size:12px;
+  color:#666;
+  
+  a {
+    
+    color:blue;
+    text-decoration:none;
+    
+    &:hover { text-decoration:underline; }
+    
+  }
+  
+}
