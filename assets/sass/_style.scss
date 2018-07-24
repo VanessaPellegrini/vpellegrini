@@ -3,6 +3,7 @@
 
 html, body {
   overflow: hidden;
+  background:#1b0d6b;
 }
 
 .background {
@@ -36,17 +37,11 @@ html, body {
     }
   }
   &:nth-child(2) {
-    background: rgba(198,50,235,1);
-    background: -moz-linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(198,50,235,1)), color-stop(41%, rgba(232,37,193,1)), color-stop(100%, rgba(104,73,189,1)));
-    background: -webkit-linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
-    background: linear-gradient(45deg, rgba(198,50,235,1) 0%, rgba(232,37,193,1) 41%, rgba(104,73,189,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c632eb', endColorstr='#6849bd', GradientType=1 );
+    background:#180091;
+    
   }
   &:nth-child(3) {
-    background:#180091;
+    background: rgba(198,50,235,1);
   }
   &:nth-child(4) {
     background: #28fcf7;
@@ -113,7 +108,7 @@ html, body {
   }
 }
 
-header{
+.header{
   hgroup {
     display: inline-block;
     text-align: center;
@@ -123,7 +118,7 @@ header{
     transform: translateX(-50%) translateY(-50%);
     color: #fff;
     border: 5px solid #fff;
-    padding: 12.5em 20em;
+    padding: 10em 15em;
     background-color: rgba(0,0,0,.2);
     z-index: 2;
   }
