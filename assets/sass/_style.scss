@@ -406,3 +406,21 @@ h1 {
   }
   
 }
+// particles JS
+canvas{
+  position: absolute;
+}
+//img about me
+div.imgAbout img{
+  width: 400px;
+  border: 5px solid white;
+  border-radius: 5px;
+  position: relative;
+  float: left;
+  left: 200px;
+  top: 30px;
+}
+//text about
+div.textAbout p{
+  width: 400px;
+}
